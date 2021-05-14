@@ -4,7 +4,7 @@ context('App', () => {
     });
 
     it('app exists', () => {
-        cy.get('#app').should('have.length', 0);
+        cy.get('#app').should('have.length', 1);
     });
 
 });
