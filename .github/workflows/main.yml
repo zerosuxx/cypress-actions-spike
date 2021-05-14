@@ -20,3 +20,8 @@ jobs:
           path: |
             test/e2e/cypress/videos
             test/e2e/cypress/screenshots
+      - name: Create application artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: dist/
