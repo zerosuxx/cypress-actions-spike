@@ -8,9 +8,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Build application
+        run: make build
       - name: Run tests
-        run: make test
-      - name: Create artifacts
+        run: make test-ci
+      - name: Create cypress recordings artifact
         uses: actions/upload-artifact@v2
         if: always()
         with:

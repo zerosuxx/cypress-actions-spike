@@ -9,14 +9,21 @@ services:
     volumes:
       - ./.:/app
 
-  cypress:
-    image: zerosuxx/cypress-browser-sync:latest
-    environment:
-      DISPLAY:
+  node:
+    image: node:16.0-alpine
+    command: 'sh -c "npm i && npm run serve"'
+    working_dir: /app
+    ports:
+      - 8081:8081
     volumes:
       - ./.:/app
+
+  cypress:
+    image: zerosuxx/cypress-browser-sync:latest
     working_dir: /app
+#    environment:
+#      DISPLAY:
+    volumes:
+      - ./.:/app
     ipc: host
     network_mode: host
-    depends_on:
-      - app
