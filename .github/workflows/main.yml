@@ -1,0 +1,20 @@
+name: CI
+
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run tests
+        run: make test
+      - name: Create artifacts
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: cypress-recordings
+          path: |
+            test/e2e/cypress/videos
+            test/e2e/cypress/screenshots
