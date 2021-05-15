@@ -21,7 +21,7 @@ sh-cypress: ## Connects into cypress container
 	docker-compose run --rm cypress /bin/bash
 
 build: ## Builds application
-	docker-compose run --rm node sh -c 'npm i && npm run build'
+	docker-compose run --rm node npm run build
 
 test: e2e ## Alias of e2e
 

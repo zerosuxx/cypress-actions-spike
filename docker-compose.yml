@@ -10,8 +10,8 @@ services:
       - ./.:/app
 
   node:
-    image: node:16.0-alpine
-    command: 'sh -c "npm i && npm run serve"'
+    image: zerosuxx/node-vuejs:latest
+    command: npm run serve
     working_dir: /app
     ports:
       - 8081:8081
