@@ -8,10 +8,28 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: npm-cache
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install dependencies
+        run: make install-ci
+
       - name: Build application
-        run: make build
+        run: make build-ci
+
       - name: Run tests
         run: make test-ci
+
       - name: Create cypress recordings artifact
         uses: actions/upload-artifact@v2
         if: always()
@@ -20,6 +38,7 @@ jobs:
           path: |
             test/e2e/cypress/videos
             test/e2e/cypress/screenshots
+
       - name: Create application artifact
         uses: actions/upload-artifact@v2
         if: always()
