@@ -20,7 +20,7 @@ pull: ## Downloads the images
 sh-cypress: ## Connects into cypress container
 	docker-compose run --rm cypress /bin/bash
 
-install-ci: ## Builds application
+install-ci: ## Installs application
 	docker-compose run --rm -v ~/.npm:/root/.npm node npm install
 
 build-ci: ## Builds application
