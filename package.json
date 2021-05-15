@@ -8,8 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "serve": "vue serve -p 8081 src/App.vue",
-    "build": "vue build src/App.vue",
+    "serve": "vue serve -p 8081 src",
+    "build": "vue build src",
     "test": "cd test/e2e && cypress run",
     "test-browser": "cd test/e2e && cypress open --project ."
   },

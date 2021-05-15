@@ -1,5 +1,23 @@
 <template>
     <div id="app">
-        <h1>Hello!</h1>
+        <p>{{ greeting }} World!</p>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            greeting: 'Hello'
+        };
+    }
+};
+</script>
+
+<style scoped>
+p {
+    font-size: 2em;
+    text-align: center;
+}
+</style>
+
