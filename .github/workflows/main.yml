@@ -9,7 +9,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build application
-        run: make build
+        run: mkdir dist/ && echo '<div id="app">HELLO</div>' > dist/index.html
       - name: Run tests
         run: make test-ci
       - name: Create cypress recordings artifact
