@@ -14,6 +14,9 @@ down: ## Destroys the containers
 pull: ## Downloads the images
 	docker-compose pull
 
+sh: ## Connects into app container
+	docker-compose run --rm app sh
+
 sh-cypress: ## Connects into cypress container
 	docker-compose run --rm cypress /bin/bash
 
