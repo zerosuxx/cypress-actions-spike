@@ -44,4 +44,4 @@ jobs:
         if: always()
         with:
           name: app
-          path: dist/
+          path: app/dist/
