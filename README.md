@@ -1,1 +1,1 @@
-# cypress-actions-spike
+# vue3-typescript-spike
