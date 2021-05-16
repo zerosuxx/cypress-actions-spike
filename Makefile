@@ -5,11 +5,8 @@ default: help
 help: ## Shows this help
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' -e 's/:.*#/: #/'
 
-serve-native: ## Serve contents with php built in web server
-	php -S localhost:8080 server.php
-
-serve: ## Serve contents with docker
-	docker-compose up -d app
+up: ## Serve contents with docker
+	docker-compose up -d
 
 down: ## Destroys the containers
 	docker-compose down
@@ -21,14 +18,15 @@ sh-cypress: ## Connects into cypress container
 	docker-compose run --rm cypress /bin/bash
 
 install-ci: ## Installs application
-	docker-compose run --rm -v ~/.npm:/root/.npm node npm install
+	docker-compose run --rm app npm install
 
 build-ci: ## Builds application
-	docker-compose run --rm -v ~/.npm:/root/.npm node npm run build
+	docker-compose run --rm app npm run build
 
 test: e2e ## Alias of e2e
 
 test-ci: ## Runs tests in ci
+	docker-compose run --rm app npm run test:unit
 	docker-compose run --rm cypress make e2e-native-with-browser-sync
 
 e2e: ## Runs e2e tests with cypress

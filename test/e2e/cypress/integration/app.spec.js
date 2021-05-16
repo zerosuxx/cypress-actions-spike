@@ -3,8 +3,8 @@ context('App', () => {
         cy.visit('/');
     });
 
-    it('app exists', () => {
-        cy.get('#app').should('have.length', 1);
+    it('renders welcome message', () => {
+        cy.get('#app').contains('Hello VueTS');
     });
 
 });
