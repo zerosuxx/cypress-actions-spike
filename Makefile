@@ -30,7 +30,7 @@ test: e2e ## Alias of e2e
 
 test-ci: ## Runs tests in ci
 	docker-compose run --rm app npm run test:unit
-	docker-compose run --rm cypress make e2e-native-with-browser-sync
+	docker-compose run --rm cypress make e2e-native-with-serve
 
 e2e: ## Runs e2e tests with cypress
 	docker-compose run --rm -T cypress make e2e-native
