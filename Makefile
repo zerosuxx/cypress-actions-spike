@@ -38,7 +38,7 @@ e2e: ## Runs e2e tests with cypress
 e2e-native: ## Runs e2e tests with cypress on host machine
 	cd test/e2e && cypress run
 
-e2e-native-with-browser-sync: serve-browser-sync e2e-native ## Runs e2e tests with cypress and browser sync on host machine
+e2e-native-with-serve: serve-native e2e-native ## Runs e2e tests with cypress and browser sync on host machine
 
 e2e-browser: ## Runs e2e tests with cypress in browser
 	-xhost +
@@ -47,5 +47,5 @@ e2e-browser: ## Runs e2e tests with cypress in browser
 e2e-browser-native: ## Runs e2e tests with cypress in browser on host machine
 	cd test/e2e && cypress open --project .
 
-serve-browser-sync: ## Runs browser sync server in background
-	npm run serve-browser-sync &
+serve-native: ## Runs browser sync server in background
+	npm run serve &

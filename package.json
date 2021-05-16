@@ -3,8 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
-    "@vue/cli": "^4.5.13",
-    "@vue/cli-service-global": "^4.5.13",
     "browser-sync": "^2.26.14"
   },
   "devDependencies": {
@@ -13,7 +11,7 @@
   "scripts": {
     "test": "cd test/e2e && cypress run",
     "test-browser": "cd test/e2e && cypress open --project .",
-    "serve-browser-sync": "browser-sync start --no-ui --no-open --server --serveStatic app/dist/"
+    "serve": "browser-sync start --no-ui --no-open --server --serveStatic app/dist/"
   },
   "author": "tamas.mohos@emarsys.com",
   "license": "ISC"
