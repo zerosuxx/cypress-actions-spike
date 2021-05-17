@@ -9,13 +9,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Restore node modules cache
+      - name: Cache node modules
         uses: actions/cache@v2
         env:
           cache-name: npm-cache
         with:
-          path: ./app/node_modules/
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('/app/package-lock.json') }}
+          path: app/node_modules/
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('app/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
